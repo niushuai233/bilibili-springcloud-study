@@ -1,2 +1,7 @@
 # 脑图lock文件
 *.~*
+
+# idea
+.idea/
+*.iml
+target/
