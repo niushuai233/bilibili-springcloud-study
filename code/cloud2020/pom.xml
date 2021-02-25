@@ -30,6 +30,7 @@
         <druid.version>1.1.16</druid.version>
         <mybatis.spring.boot.version>1.3.0</mybatis.spring.boot.version>
         <hutool.version>5.4.3</hutool.version>
+        <guava.version>30.1-jre</guava.version>
     </properties>
 
 
@@ -95,6 +96,11 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
