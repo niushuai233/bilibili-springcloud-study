@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.cloud.netflix.eureka.EurekaServiceInstance;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -61,27 +60,22 @@ public class PaymentController {
         return new CommonResult<Payment>(445, "未找到记录");
     }
 
-    @GetMapping("/discovery")
-    public CommonResult discovery() {
 
+    @GetMapping(value = "/discovery")
+    public Object discovery()
+    {
         List<String> services = discoveryClient.getServices();
-
-
-        for (String service : services) {
-
-            List<ServiceInstance> instances = discoveryClient.getInstances(service);
-
-            for (ServiceInstance instance : instances) {
-
-                log.info("{} {} {} {} {}", instance.getInstanceId(), instance.getHost(), instance.getPort(), instance.getScheme(), instance.getUri());
-            }
-
-            log.info("service : {} complete", JSONUtil.toJsonStr(service));
-
+        for (String element : services) {
+            log.info("*****element: "+element);
         }
 
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+        for (ServiceInstance instance : instances) {
+            log.info(instance.getServiceId()+"\t"+instance.getHost()+"\t"+instance.getPort()+"\t"+instance.getUri());
+        }
 
-        return new CommonResult(200, "success", discoveryClient);
+        return this.discoveryClient;
     }
+
 
 }
