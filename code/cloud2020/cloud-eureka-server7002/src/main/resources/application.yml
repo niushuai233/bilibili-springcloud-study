@@ -12,3 +12,6 @@ eureka:
     service-url:
       # 注册中心地址
       defaultZone: http://eureka7001.com:7001/eureka/
+    server:
+      # 关闭自我baohu
+      enable-self-preservation: false
