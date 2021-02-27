@@ -34,8 +34,19 @@ public class OrderHystrixController {
     }
 
     @GetMapping("/hystrix/timeout/{id}")
+    @HystrixCommand(fallbackMethod = "paymentInfo_TimeoutFallback", commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000")
+    })
     public String paymentInfo_Timeout(@PathVariable("id") String id) {
+
+//        int age = 10 / 0;
+
         return paymentHystrixService.paymentInfo_Timeout(id) + " from port " + port;
+    }
+
+    public String paymentInfo_TimeoutFallback(@PathVariable("id") String id) {
+
+        return "消费端fallback处理 id = " + id;
     }
 
 }

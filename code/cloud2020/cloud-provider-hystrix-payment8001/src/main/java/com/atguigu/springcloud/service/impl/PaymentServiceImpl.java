@@ -26,7 +26,7 @@ public class PaymentServiceImpl implements PaymentService {
     })
     public String paymentInfo_Timeout(String id) {
 
-        int timeNumber = 3;
+        int timeNumber = 1;
 
 //        try {
 //            TimeUnit.SECONDS.sleep(timeNumber);
@@ -34,7 +34,7 @@ public class PaymentServiceImpl implements PaymentService {
 //        }
 
 
-        int age = 10 / 0;
+//        int age = 10 / 0;
         return "线程池：" + Thread.currentThread().getName() + "\t paymentInfo_Timeout\tid=" + id + "\t耗时: " + timeNumber + "s";
     }
 

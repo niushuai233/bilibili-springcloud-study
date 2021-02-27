@@ -9,6 +9,10 @@ ribbon:
   ReadTimeout: 5000
   ConnectTimeout: 5000
 
+feign:
+  hystrix:
+    enabled: true
+
 eureka:
   client:
     fetch-registry: true
