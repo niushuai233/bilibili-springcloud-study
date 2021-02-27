@@ -1,9 +1,10 @@
 package com.atguigu.springcloud.service.impl;
 
 import com.atguigu.springcloud.service.PaymentService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -20,16 +21,25 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
+    @HystrixCommand(fallbackMethod = "paymentInfo_TimeoutHandler", commandProperties = {
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="1500")
+    })
     public String paymentInfo_Timeout(String id) {
 
         int timeNumber = 3;
 
-        try {
-            TimeUnit.SECONDS.sleep(timeNumber);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            TimeUnit.SECONDS.sleep(timeNumber);
+//        } catch (InterruptedException e) {
+//        }
 
+
+        int age = 10 / 0;
         return "线程池：" + Thread.currentThread().getName() + "\t paymentInfo_Timeout\tid=" + id + "\t耗时: " + timeNumber + "s";
     }
+
+    public String paymentInfo_TimeoutHandler(String id) {
+        return Thread.currentThread().getName() + " paymentInfo_TimeoutHandler 默认处理机制 id = " + id;
+    }
+
 }
