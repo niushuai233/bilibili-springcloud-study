@@ -52,4 +52,10 @@ public class PaymentController {
 
         return new CommonResult<Payment>(445, "未找到记录");
     }
+
+    @GetMapping("/lb")
+    public Integer port() {
+
+        return port;
+    }
 }

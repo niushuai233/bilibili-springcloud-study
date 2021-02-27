@@ -1,6 +1,5 @@
 package com.atguigu.springcloud.controller;
 
-import cn.hutool.json.JSONUtil;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.entities.Payment;
 import com.atguigu.springcloud.service.PaymentService;
@@ -77,5 +76,11 @@ public class PaymentController {
         return this.discoveryClient;
     }
 
+
+    @GetMapping("/lb")
+    public Integer port() {
+
+        return port;
+    }
 
 }
