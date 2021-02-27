@@ -42,7 +42,7 @@ public class OrderHystrixController {
     @HystrixCommand
     public String paymentInfo_Timeout(@PathVariable("id") String id) {
 
-        int age = 10 / 0;
+//        int age = 10 / 0;
 
         return paymentHystrixService.paymentInfo_Timeout(id) + " from port " + port;
     }

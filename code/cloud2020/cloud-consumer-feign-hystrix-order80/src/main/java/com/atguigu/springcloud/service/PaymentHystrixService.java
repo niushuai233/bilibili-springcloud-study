@@ -1,5 +1,6 @@
 package com.atguigu.springcloud.service;
 
+import com.atguigu.springcloud.config.PaymentHystrixFallbackConfig;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.entities.Payment;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @date 2021/2/27
  */
 @Component
-@FeignClient(value = "cloud-provider-hystrix-service")
+@FeignClient(value = "cloud-provider-hystrix-service", fallback = PaymentHystrixFallbackConfig.class)
 public interface PaymentHystrixService {
 
     @GetMapping("/payment/hystrix/ok/{id}")
