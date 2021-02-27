@@ -31,4 +31,10 @@ public class OrderFeignController {
         return paymentService.getPaymentById(id);
     }
 
+    @GetMapping("/feign/timeout")
+    public Integer paymentFeignTimeout() {
+
+        log.info("xx");
+        return paymentService.paymentFeignTimeout();
+    }
 }
