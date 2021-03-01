@@ -10,4 +10,6 @@ public interface PaymentService {
     String paymentInfo_OK(String id);
 
     String paymentInfo_Timeout(String id);
+
+    String payment_circuitBreaker(Integer id);
 }
