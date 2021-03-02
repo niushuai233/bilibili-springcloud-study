@@ -11,6 +11,11 @@ spring:
           uri: https://github.com/niushuai233/bilibili-springcloud-study.git
           search-paths:
             - springcloud-config
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: niushuai233
+    password: niushuai233
 eureka:
   instance:
     hostname: cloud-config-service
@@ -19,3 +24,8 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
