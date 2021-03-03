@@ -31,6 +31,8 @@
         <module>cloud-steam-rabbitmq-provider8801</module>
         <module>cloud-steam-rabbitmq-provider8802</module>
         <module>cloud-steam-rabbitmq-provider8803</module>
+        <module>cloudalibaba-provider-payment9001</module>
+        <module>cloudalibaba-provider-payment9002</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
