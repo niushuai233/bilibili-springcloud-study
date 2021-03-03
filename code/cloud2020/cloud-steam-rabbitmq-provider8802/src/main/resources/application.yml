@@ -21,6 +21,8 @@ spring:
           destination: studyExchange # 表示要使用的Exchange名称定义
           content-type: application/json # 设置消息类型，本次为json，文本则设置“text/plain”
           binder: defaultRabbit
+          #group: atGuiGuA
+          group: atGuiGuC
 
 eureka:
   client: # 客户端进行Eureka注册的配置
