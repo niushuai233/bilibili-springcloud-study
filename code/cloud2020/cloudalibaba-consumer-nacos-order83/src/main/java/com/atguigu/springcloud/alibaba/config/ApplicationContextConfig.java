@@ -16,6 +16,9 @@ public class ApplicationContextConfig
     @LoadBalanced
     public RestTemplate getRestTemplate()
     {
+
+        int x = 1;
+        double y = x;
         return new RestTemplate();
     }
 }
