@@ -7,9 +7,10 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848 #服务注册中心地址
+        server-addr: 192.168.207.128:8848 #服务注册中心地址
       config:
-        server-addr: localhost:8848 #配置中心地址
+        server-addr: 192.168.207.128:8848 #配置中心地址
         file-extension: yaml #指定yaml格式的配置
-        namespace: 82ddec12-4031-45e2-b869-c7d8890824ae
+        namespace: 1271645a-f0ec-4a1f-b570-7229ab7c6cf4
         group: DEV_GROUP
+
