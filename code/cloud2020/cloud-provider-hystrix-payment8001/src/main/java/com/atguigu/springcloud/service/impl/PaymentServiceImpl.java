@@ -4,10 +4,7 @@ import cn.hutool.core.date.DateUtil;
 import com.atguigu.springcloud.service.PaymentService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author ns
@@ -24,7 +21,7 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     @HystrixCommand(fallbackMethod = "paymentInfo_TimeoutHandler", commandProperties = {
-            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="1500")
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")
     })
     public String paymentInfo_Timeout(String id) {
 

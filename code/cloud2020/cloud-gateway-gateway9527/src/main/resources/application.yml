@@ -13,7 +13,7 @@ spring:
         - id: payment_routh          # id 区别不同的名称用
           #uri: http://localhost:8001 # 真实地址
           uri: lb://CLOUD-PAYMENT-SERVICE
-          predicates:                # 断言
+          predicates: # 断言
             - Path=/payment/get/**   # 路由规则
         - id: payment_routh2
           #uri: http://localhost:8001

@@ -23,8 +23,8 @@ public class RouteConfig {
 
         routes.route("test",
                 r -> r.path("/baidu").uri("https://www.baidu.com"))
-            .route("testgoogle",
-                    r -> r.path("/google").uri("https://www.google.com.hk"))
+                .route("testgoogle",
+                        r -> r.path("/google").uri("https://www.google.com.hk"))
                 .route("guowai", r -> r.path("/guoji").uri("http://news.baidu.com/guoji"))
                 .build();
 
